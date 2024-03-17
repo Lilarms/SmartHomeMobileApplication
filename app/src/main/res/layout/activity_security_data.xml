@@ -7,7 +7,7 @@
 
     <!-- TextView to display the temperature value -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:backgroundTint="@android:color/holo_green_light"
@@ -23,6 +23,14 @@
         android:paddingTop="8dp"
         android:text="Details: "
         android:textColor="#0E0E0E"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/button444"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="Back"
         android:textSize="24sp" />
 
 </LinearLayout>
