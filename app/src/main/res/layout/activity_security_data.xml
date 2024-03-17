@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView to display the temperature value -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Security"
+        android:textSize="24sp" />
+
+    <!-- TextView to display additional information or details about the temperature -->
+    <TextView
+        android:id="@+id/text_temperature_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingTop="8dp"
+        android:text="Details: "
+        android:textColor="#0E0E0E"
+        android:textSize="24sp" />
+
+</LinearLayout>
