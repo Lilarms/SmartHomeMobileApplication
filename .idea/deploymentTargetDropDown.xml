@@ -8,11 +8,21 @@
       <entry key="MainActivity (1)">
         <State />
       </entry>
-      <entry key="MainActivity2">
-        <State />
-      </entry>
-      <entry key="MainActivity5">
-        <State />
+      <entry key="MainActivity (2)">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\yugpa\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-03-24T03:09:09.084139800Z" />
+        </State>
       </entry>
       <entry key="PinInputActivity">
         <State />
