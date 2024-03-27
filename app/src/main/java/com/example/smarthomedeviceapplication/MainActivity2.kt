@@ -1,19 +1,13 @@
 package com.example.smarthomedeviceapplication
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
-//import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity2 : ComponentActivity() {
     private val databaseReference: DatabaseReference by lazy {
@@ -22,32 +16,25 @@ class MainActivity2 : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            val temperature = remember { mutableStateOf("Loading...") }
-            observeTemperature(temperature)
-            TemperatureView(temperature.value)
-        }
+        setContentView(R.layout.activity_temperature_view)
+
+        val textView: TextView = findViewById(R.id.textView)
+        observeTemperature(textView)
     }
 
-    private fun observeTemperature(temperature: MutableState<String>) {
+    private fun observeTemperature(textView: TextView) {
         val temperatureRef = databaseReference.child("sensors").child("temperature").child("value")
 
         temperatureRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val value = snapshot.getValue(String::class.java)
-                temperature.value = value ?: "N/A"
+                textView.text = value ?: "N/A"
+                textView.text = "$value°C" // Adding "°C" at the end
             }
 
             override fun onCancelled(error: DatabaseError) {
-                temperature.value = "Failed to fetch temperature"
+                textView.text = "Failed to fetch temperature"
             }
         })
-    }
-}
-
-@Composable
-fun TemperatureView(temperature: String) {
-    Column(modifier = Modifier.padding(16.dp)) {
-        Text("Temperature: $temperature")
     }
 }

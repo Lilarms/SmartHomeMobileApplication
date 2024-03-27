@@ -1,45 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
     <!-- TextView to display the temperature value -->
+
+    <!-- TextView to display the temperature unit (e.g., Celsius, Fahrenheit) -->
+
+    <!-- TextView to display additional information or details about the temperature -->
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/purple_500"
         android:text="Temperature"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- TextView to display the temperature unit (e.g., Celsius, Fahrenheit) -->
     <TextView
-        android:id="@+id/text_temperature_unit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="°C"
-        android:textColor="#090909"
-        android:textSize="24sp" />
-
-    <!-- TextView to display additional information or details about the temperature -->
-    <TextView
-        android:id="@+id/text_temperature_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:paddingTop="8dp"
-        android:text="Details: "
-        android:textColor="#0E0E0E"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/button444"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:text="Back"
-        android:textSize="24sp" />
-</LinearLayout>
+        android:id="@+id/textView"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="272dp"
+        android:text="tempView"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
