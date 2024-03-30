@@ -5,32 +5,41 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- TextView to display the temperature value -->
-    <Button
-        android:id="@+id/button"
+    <!-- Button for irrigation automation -->
+
+    <!-- Button for controlling the water pump -->
+
+    <ToggleButton
+        android:id="@+id/irrigation_automation_button"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:backgroundTint="#FA0404"
-        android:text="Humidity"
+        android:text="Irrigation Automation"
+        android:textOff="Set Irrigation Automatic Mode to On"
+        android:textOn="Set Irrigation Automatic Mode to Off"
         android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/button444"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_orange_light"
-        android:text="Back"
+    <!-- ToggleButton for other functionality (if needed) -->
+
+    <!-- TextView to display additional information or details -->
+
+    <ToggleButton
+        android:id="@+id/water_pump_on_button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="#FA0404"
+        android:text="Turn Water Pump On"
+        android:textOff="Turn on Water Pump"
+        android:textOn="Turn off Water Pump"
         android:textSize="24sp" />
 
-    <!-- TextView to display additional information or details about the temperature -->
     <TextView
-        android:id="@+id/text_temperature_details"
+        android:id="@+id/text_humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Details: "
-        android:layout_marginTop="30dp"
-        android:textColor="#FA0404"
-        android:textSize="36sp"
-        android:paddingTop="8dp" />
+        android:text="Current Humidity Value is: N/A"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="24dp"/>
 
 </LinearLayout>
