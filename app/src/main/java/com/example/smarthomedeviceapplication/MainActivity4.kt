@@ -16,8 +16,8 @@ class MainActivity4 : ComponentActivity() {
         FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("control").child("blinds_open")
     }
 
-    private val switchDatabaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("control").child("blinds_auto")
+    private val modeDatabaseReference: DatabaseReference by lazy {
+        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("control").child("mode")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,20 +46,21 @@ class MainActivity4 : ComponentActivity() {
         }
 
         // Add ValueEventListener to update the switch state based on Firebase value
-        switchDatabaseReference.addValueEventListener(object : ValueEventListener {
+        modeDatabaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val value = dataSnapshot.getValue(Boolean::class.java) ?: false
-                switch1.isChecked = value
+                val value = dataSnapshot.getValue(String::class.java) ?: "auto"
+                switch1.isChecked = value == "manual"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@MainActivity4, "Failed to read value for switch.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity4, "Failed to read value for mode.", Toast.LENGTH_SHORT).show()
             }
         })
 
         // Add OnCheckedChangeListener to update Firebase value based on switch state
         switch1.setOnCheckedChangeListener { _, isChecked ->
-            switchDatabaseReference.setValue(isChecked)
+            val mode = if (isChecked) "manual" else "auto"
+            modeDatabaseReference.setValue(mode)
         }
 
         toggleButton.setOnCheckedChangeListener { _, isChecked ->
