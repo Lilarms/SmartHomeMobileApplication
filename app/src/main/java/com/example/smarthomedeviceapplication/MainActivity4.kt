@@ -48,8 +48,8 @@ class MainActivity4 : ComponentActivity() {
         // Add ValueEventListener to update the switch state based on Firebase value
         modeDatabaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val value = dataSnapshot.getValue(String::class.java) ?: "auto"
-                switch1.isChecked = value == "manual"
+                val value = dataSnapshot.getValue(String::class.java) ?: "manual"
+                switch1.isChecked = value == "automatic"
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -59,7 +59,7 @@ class MainActivity4 : ComponentActivity() {
 
         // Add OnCheckedChangeListener to update Firebase value based on switch state
         switch1.setOnCheckedChangeListener { _, isChecked ->
-            val mode = if (isChecked) "manual" else "auto"
+            val mode = if (isChecked) "automatic" else "manual"
             modeDatabaseReference.setValue(mode)
         }
 
