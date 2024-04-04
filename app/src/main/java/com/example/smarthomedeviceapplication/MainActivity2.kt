@@ -48,7 +48,7 @@ class MainActivity2 : ComponentActivity() {
     }
 
     private fun observeCurrentTemperature(textViewCurrentTemp: TextView) {
-        val temperatureRef = databaseReference.child("sensors").child("temperature").child("value")
+        val temperatureRef = databaseReference.child("sensors").child("arduino1").child("temperature").child("value")
 
         temperatureRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
