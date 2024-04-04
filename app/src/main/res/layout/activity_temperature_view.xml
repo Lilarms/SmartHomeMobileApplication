@@ -51,12 +51,12 @@
         android:id="@+id/text_Desired_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="128dp"
         android:paddingTop="8dp"
         android:text="Desired Temperature: "
         android:textColor="#800080"
         android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button" />
 
@@ -64,39 +64,40 @@
         android:id="@+id/text_Current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
         android:paddingTop="8dp"
         android:text="Current Temperature: "
         android:textColor="#800080"
         android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button" />
 
     <TextView
         android:id="@+id/textViewCurrentTemp"
-        android:layout_width="375dp"
+        android:layout_width="278dp"
         android:layout_height="50dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="40dp"
         android:text="tempView"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/text_Current_temp" />
 
     <TextView
         android:id="@+id/textViewDesiredTemp"
-        android:layout_width="375dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="216dp"
+        android:layout_width="308dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
         android:text="tempView"
         android:textAlignment="center"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_Current_temp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/text_Desired_temp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
