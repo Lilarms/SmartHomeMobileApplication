@@ -25,7 +25,7 @@ class MainActivity3 : ComponentActivity() {
         val humidityTextView = findViewById<TextView>(R.id.text_humidity)
 
         // Add ValueEventListener to update the toggle state based on Firebase value for irrigation
-        val irrigationReference = databaseReference.child("control").child("irrigation_active")
+        val irrigationReference = databaseReference.child("control").child("irrigation_automation")
         irrigationReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Boolean::class.java) ?: false
@@ -38,7 +38,7 @@ class MainActivity3 : ComponentActivity() {
         })
 
         // Add ValueEventListener to update the toggle state based on Firebase value for water pump
-        val waterPumpReference = databaseReference.child("control").child("water_pump_on")
+        val waterPumpReference = databaseReference.child("control").child("irrigation_active")
         waterPumpReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(Boolean::class.java) ?: false
