@@ -52,7 +52,7 @@ class MainActivity2 : ComponentActivity() {
 
         temperatureRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val value = snapshot.getValue(String::class.java)?.toIntOrNull() ?: 0
+                val value = snapshot.getValue(String::class.java)?.toDoubleOrNull()?: 0
                 textViewCurrentTemp.text = "$value°C"
             }
 
