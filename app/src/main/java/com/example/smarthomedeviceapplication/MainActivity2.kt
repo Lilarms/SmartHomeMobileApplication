@@ -3,6 +3,7 @@ package com.example.smarthomedeviceapplication
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -23,9 +24,11 @@ class MainActivity2 : ComponentActivity() {
         val textViewDesiredTemp: TextView = findViewById(R.id.textViewDesiredTemp)
         val btnPlus: Button = findViewById(R.id.btnPlus)
         val btnMinus: Button = findViewById(R.id.btnMinus)
+        val humidityTextView: TextView = findViewById(R.id.text_humidity)
 
         observeCurrentTemperature(textViewCurrentTemp)
         observeDesiredTemperature(textViewDesiredTemp)
+        observeHumidity(humidityTextView)
         setupButtonClickListeners(textViewDesiredTemp, btnPlus, btnMinus)
     }
 
@@ -59,7 +62,26 @@ class MainActivity2 : ComponentActivity() {
         })
     }
 
-    private fun setupButtonClickListeners(textViewDesiredTemp: TextView, btnPlus: Button, btnMinus: Button) {
+    private fun observeHumidity(humidityTextView: TextView) {
+        val humidityReference = databaseReference.child("sensors").child("arduino1").child("humidity").child("value")
+
+        humidityReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val value = dataSnapshot.getValue(String::class.java) ?: "N/A"
+                humidityTextView.text = "Current Humidity: $value"
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity2, "Failed to read humidity value.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun setupButtonClickListeners(
+        textViewDesiredTemp: TextView,
+        btnPlus: Button,
+        btnMinus: Button
+    ) {
         btnPlus.setOnClickListener {
             incrementTemperature(textViewDesiredTemp)
         }

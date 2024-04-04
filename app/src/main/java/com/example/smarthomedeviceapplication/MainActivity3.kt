@@ -22,7 +22,8 @@ class MainActivity3 : ComponentActivity() {
 
         val irrigationToggleButton = findViewById<ToggleButton>(R.id.irrigation_automation_button)
         val waterPumpToggleButton = findViewById<ToggleButton>(R.id.water_pump_on_button)
-        val humidityTextView = findViewById<TextView>(R.id.text_humidity)
+
+        val soilMoistureTextView = findViewById<TextView>(R.id.text_moisture_level)
 
         // Add ValueEventListener to update the toggle state based on Firebase value for irrigation
         val irrigationReference = databaseReference.child("control").child("irrigation_automation")
@@ -51,15 +52,17 @@ class MainActivity3 : ComponentActivity() {
         })
 
         // Add ValueEventListener to update the humidity value
-        val humidityReference = databaseReference.child("sensors").child("humidity").child("value")
-        humidityReference.addValueEventListener(object : ValueEventListener {
+
+        // Add ValueEventListener to update the soil moisture value
+        val soilMoistureReference = databaseReference.child("sensors").child("arduino1").child("soilMoisture").child("value")
+        soilMoistureReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val value = dataSnapshot.getValue(String::class.java) ?: "N/A"
-                humidityTextView.text = "Current Humidity: $value"
+                soilMoistureTextView.text = "Current Soil Moisture: $value"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@MainActivity3, "Failed to read humidity value.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity3, "Failed to read soil moisture value.", Toast.LENGTH_SHORT).show()
             }
         })
 

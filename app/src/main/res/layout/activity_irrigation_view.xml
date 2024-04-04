@@ -33,11 +33,12 @@
         android:textOn="Turn off Water Pump"
         android:textSize="24sp" />
 
+
     <TextView
-        android:id="@+id/text_humidity"
+        android:id="@+id/text_moisture_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Humidity Value is: N/A"
+        android:text="Current Moisture Value is: N/A"
         android:textSize="24sp"
         android:textColor="@android:color/black"
         android:layout_marginTop="24dp"/>
