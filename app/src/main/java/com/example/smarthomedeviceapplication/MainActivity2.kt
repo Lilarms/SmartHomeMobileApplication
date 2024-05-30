@@ -13,7 +13,7 @@ import com.google.firebase.database.ValueEventListener
 
 class MainActivity2 : ComponentActivity() {
     private val databaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference
+        FirebaseDatabase.getInstance("https://smart-home-new-4cf7a-default-rtdb.firebaseio.com/").reference
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

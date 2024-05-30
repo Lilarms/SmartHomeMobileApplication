@@ -14,19 +14,19 @@ import com.google.firebase.database.ValueEventListener
 
 class MainActivity4 : ComponentActivity() {
     private val toggleDatabaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("control").child("blinds_open")
+        FirebaseDatabase.getInstance("https://smart-home-new-4cf7a-default-rtdb.firebaseio.com/").reference.child("control").child("blinds_open")
     }
 
     private val modeDatabaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("control").child("mode")
+        FirebaseDatabase.getInstance("https://smart-home-new-4cf7a-default-rtdb.firebaseio.com/").reference.child("control").child("mode")
     }
 
     private val blindsStatusDatabaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("sensors").child("arduino2").child("blinds_status").child("blinds")
+        FirebaseDatabase.getInstance("https://smart-home-new-4cf7a-default-rtdb.firebaseio.com/").reference.child("sensors").child("arduino2").child("blinds_status").child("blinds")
     }
 
     private val lightLevelDatabaseReference: DatabaseReference by lazy {
-        FirebaseDatabase.getInstance("https://smart-home-31620-default-rtdb.firebaseio.com").reference.child("sensors").child("arduino2").child("blinds_status").child("lightLevel")
+        FirebaseDatabase.getInstance("https://smart-home-new-4cf7a-default-rtdb.firebaseio.com/").reference.child("sensors").child("arduino2").child("blinds_status").child("lightLevel")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
